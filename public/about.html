@@ -3,9 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Post</title>
 </head>
 <body>
-    <h1>Welcome to about page</h1>
+    <h1>Get Posts</h1>
+    <form id="add-post-form">
+       <label for="title">Title</label><br>
+       <input type="text" id="title" name="title"><br>
+       <input type="text"  name="content" ><br>
+       <button type="submit">Submit</button>   
+    </form>
+    <button class="get-posts-btn">Get posts</button>
+    <div id="output"></div>
+<script src="./main.js"></script>
 </body>
 </html>
