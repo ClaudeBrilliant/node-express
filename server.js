@@ -14,12 +14,13 @@ const __dirname = path.dirname(__filename);
 
 // Body parser middleware
 //it parses incoming request with JSON payloads
+app.use(express.json())
+app.use(express.urlencoded({extended: false}))// allows to parse url encoded data
+
 
 //logger middleware
 app.use(logger)
 
-app.use(express.json())
-app.use(express.urlencoded({extended: false}))// allows to parse url encoded data
 
 // setup static folder
 app.use(express.static(path.join(__dirname, 'public')))
