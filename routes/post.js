@@ -21,7 +21,7 @@ let posts = [
 ]
 
 //get all posts
-router.get('/', logger, function(req, res){ 
+router.get('/', function(req, res, next){ 
     const limit = req.query.limit
     if(!isNaN(limit) && limit > 0){
         posts = posts.slice(0, limit)
@@ -43,7 +43,7 @@ router.get('/:id', function(req, res, next){
 })
 
 //create post
-router.post('/', function(req, res){
+router.post('/', function(req, res, next){
     const {title, content} = req.body
     const id = posts.length + 1
     const newPost = {
@@ -59,7 +59,7 @@ router.post('/', function(req, res){
 })
 
 //update post
-router.put('/:id', function(req, res){
+router.put('/:id', function(req, res, next){
     const id = req.params.id
     const post = posts.find(post => post.id == id)
     if(!post){
@@ -72,7 +72,7 @@ router.put('/:id', function(req, res){
 })
 
 //post delete
-router.delete('/:id', function(req, res){
+router.delete('/:id', function(req, res, next){
     const id = req.params.id
     const post = posts.find(post => post.id == id)
     if(!post){
